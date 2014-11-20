@@ -15,9 +15,12 @@ namespace TijgerDraakEnEieren
         Spel spel;
         bool PVP = true;
         bool NieuweSpel = true;
+        PictureBox[] speelVelden;
+
         public Form1( )
         {
             InitializeComponent( );
+            speelVelden = new PictureBox[] { v0,v1,v2,v3,v4,v5,v6,v7,v8 };
         }
 
         private void UserKlik(object sender, EventArgs e)
@@ -37,6 +40,7 @@ namespace TijgerDraakEnEieren
                         spel = new Spel( );
                         NieuweSpel = false;
                     }
+                    #region PVP Logica
                     // De speler heeft de AI knop NIET ingedrukt.
                     AI_Knop.Enabled = false;
                     AI_Knop.ForeColor = System.Drawing.Color.DarkSlateGray;
@@ -68,7 +72,8 @@ namespace TijgerDraakEnEieren
                     else
                     {
                         Console.WriteLine("Veld is niet beschikbaar");
-                    }
+                    } 
+                    #endregion
 
 
                 }
@@ -80,10 +85,67 @@ namespace TijgerDraakEnEieren
                         spel = new AI_Spel( );
                         NieuweSpel = false;
                     }
+                    // De speler maakt altijd de eerste zet.
+                    // Aan het einde van die zet wordt er een reactie getriggerd v/d AI.
 
+                    #region P vs AI Logica
+                    // AI knop wordt uitgezet.
+                    AI_Knop.Enabled = false;
+
+                    // Nu moet er getoetst worden of de zet v/d speler mogelijk is.
+                    if (spel.IsZetMogelijk(veldTag) == true)
+                    {
+                        // Veld is beschikbaar, registreer de zet.
+                        spel.MaakZet(veldTag);
+
+                        // Veld wordt visueel ook verandert.
+                        if (spel.WieIsAanDeBeurt( ) == Status.X)
+                        {
+                            userKlik.Image = Properties.Resources.tiger;
+                            huidgeSpelerBox.Image = Properties.Resources.blackdragon;
+                        }
+                        else
+                        {
+                            userKlik.Image = Properties.Resources.blackdragon;
+                            huidgeSpelerBox.Image = Properties.Resources.tiger;
+                        }
+                        // Bekijk of de spel gewonnen is.
+                        if (spel.SpelGewonnen( ) == true)
+                        {
+                            // Velden uitzetten 
+                            BewerkVelden(false);
+                        }
+                        ComputerZet( );
+                    }
+                    else
+                    {
+                        Console.WriteLine("Veld is niet beschikbaar");
+                    } 
+                    #endregion
 
                 }
             
+        }
+        private void ComputerZet( )
+        {
+            int zet = spel.BerekenZet( );
+            spel.MaakZet(zet);
+            if (spel.WieIsAanDeBeurt( ) == Status.X)
+            {
+                speelVelden[zet].Image = Properties.Resources.tiger;
+                huidgeSpelerBox.Image = Properties.Resources.blackdragon;
+            }
+            else
+            {
+                speelVelden[zet].Image = Properties.Resources.blackdragon;
+                huidgeSpelerBox.Image = Properties.Resources.tiger;
+            }
+            // Bekijk of de spel gewonnen is.
+            if (spel.SpelGewonnen( ) == true)
+            {
+                // Velden uitzetten 
+                BewerkVelden(false);
+            }
         }
         private void speelTegenDeComputer(object sender, EventArgs e)
         {
@@ -91,7 +153,7 @@ namespace TijgerDraakEnEieren
             AI_Knop.Enabled = false;
             AI_Knop.ForeColor = System.Drawing.Color.DarkSlateGray;
             PVP = false;
-            NieuweSpel = false;
+            //NieuweSpel = false;
 
         }
 
@@ -127,6 +189,9 @@ namespace TijgerDraakEnEieren
                 v7.Image = null;
                 v8.Image = null;
 
+                huidgeSpelerBox.Image = Properties.Resources.blackdragon;
+                NieuweSpel = true;
+                PVP = true;
                 spel.ResetSpel( );
             }
         }
@@ -137,11 +202,6 @@ namespace TijgerDraakEnEieren
         }
 
         private void label1_Click(object sender, EventArgs e)//Leeg
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)//Leeg
         {
 
         }

@@ -3,11 +3,11 @@
   <Class Name="TijgerDraakEnEieren.Form1">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAIhQAACAAARAAAACAQAACAAAYAAAAQGQgAABAAAA=</HashCode>
+      <HashCode>CgAAAAQBCDAAAhACAAWAIAAKCBQYAAAAAAYUAAAAAAE=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TijgerDraakEnEieren.Program" Collapsed="true">
+  <Class Name="TijgerDraakEnEieren.Program">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
@@ -17,14 +17,14 @@
   <Class Name="TijgerDraakEnEieren.Spel">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAIAACIgAAAAAAgAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAAIAACIgAAACCAgAAAAAAACAAAAAACA=</HashCode>
       <FileName>Spel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TijgerDraakEnEieren.Bord">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAARAAAAAAQAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAARACAABAQAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Bord.cs</FileName>
     </TypeIdentifier>
   </Class>

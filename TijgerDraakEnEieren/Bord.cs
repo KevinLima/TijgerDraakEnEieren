@@ -43,6 +43,11 @@ namespace TijgerDraakEnEieren
         {
             velden[pos] = speler;
         }
+        public Status VeldStatus(int pos)
+        {
+            Status veldStatus = velden[pos];
+            return veldStatus;
+        }
 
         public bool Uitslag( )
         {

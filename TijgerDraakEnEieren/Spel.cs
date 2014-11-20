@@ -9,7 +9,7 @@ namespace TijgerDraakEnEieren
     {
         protected int beurt = 1;
         Bord bord = new Bord();
-        protected int aantalZetten;
+        protected int aantalZetten = 0;
 
         public Spel( )//Leeg
         {
@@ -51,16 +51,33 @@ namespace TijgerDraakEnEieren
 
             // Nu is de andere speler aan de beurt.
             WisselBeurt( );
+
+            aantalZetten++;
         }
 
         public bool IsZetMogelijk(int pos)
         {
             return bord.IsVeldBeschikbaar(pos);
         }
+        public Status StatusVanVeld(int pos)
+        {
+            return bord.VeldStatus(pos);
+        }
 
         public void ResetSpel( )
         {
             bord.NewGame( );
+            aantalZetten = 0;
+            beurt = 1;
+        }
+
+        public virtual int BerekenZet( )
+        {
+            return 2;
+        }
+        public virtual int WinnendeZet(Status st)
+        {
+            return 2;
         }
     }
 }
