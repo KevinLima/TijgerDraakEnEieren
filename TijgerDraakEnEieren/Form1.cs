@@ -164,46 +164,27 @@ namespace TijgerDraakEnEieren
 
         private void BewerkVelden(bool onOff)
         {
-            v0.Enabled = onOff;
-            v1.Enabled = onOff;
-            v2.Enabled = onOff;
-            v3.Enabled = onOff;
-            v4.Enabled = onOff;
-            v5.Enabled = onOff;
-            v6.Enabled = onOff;
-            v7.Enabled = onOff;
-            v8.Enabled = onOff;
 
-            if (onOff == true)
+            for (int i = 0; i <= 8; i++)
             {
-                AI_Knop.Enabled = onOff;
-                AI_Knop.ForeColor = System.Drawing.Color.Black;
-
-                v0.Image = null;
-                v1.Image = null;
-                v2.Image = null;
-                v3.Image = null;
-                v4.Image = null;
-                v5.Image = null;
-                v6.Image = null;
-                v7.Image = null;
-                v8.Image = null;
-
-                huidgeSpelerBox.Image = Properties.Resources.blackdragon;
-                NieuweSpel = true;
-                PVP = true;
-                spel.ResetSpel( );
+                speelVelden[i].Enabled = onOff;
             }
-        }
-        
-        private void Form1_Load(object sender, EventArgs e)//Leeg
-        {
 
-        }
+                if (onOff == true)
+                {
+                    AI_Knop.Enabled = onOff;
+                    AI_Knop.ForeColor = System.Drawing.Color.Black;
 
-        private void label1_Click(object sender, EventArgs e)//Leeg
-        {
+                    for (int i = 0; i <= 8; i++)
+                    {
+                        speelVelden[i].Image = null;
+                    }
 
+                    huidgeSpelerBox.Image = Properties.Resources.blackdragon;
+                    NieuweSpel = true;
+                    PVP = true;
+                    spel.ResetSpel( );
+                }
         }
     }
 }

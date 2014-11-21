@@ -7,8 +7,6 @@ namespace TijgerDraakEnEieren
 {
     public enum Status
     {
-        /// <summary>
-        /// </summary>
         Leeg,
         X,
         O,

@@ -63,7 +63,6 @@
             this.label1.Size = new System.Drawing.Size(127, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Huidige Speler";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AI_Knop
             // 
@@ -240,7 +239,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Tijger Draak en Eieren";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.huidgeSpelerBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v7)).EndInit();
